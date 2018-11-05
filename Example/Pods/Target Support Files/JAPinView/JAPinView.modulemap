@@ -1,0 +1,6 @@
+framework module JAPinView {
+  umbrella header "JAPinView-umbrella.h"
+
+  export *
+  module * { export * }
+}

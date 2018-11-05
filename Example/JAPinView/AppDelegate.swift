@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  JAPinView
 //
-//  Created by abhishekchip on 11/05/2018.
-//  Copyright (c) 2018 abhishekchip. All rights reserved.
+//  Created by JayachandraA on 11/05/2018.
+//  Copyright (c) 2018 JayachandraA. All rights reserved.
 //
 
 import UIKit
