@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/JAPinView.svg?style=flat)](https://cocoapods.org/pods/JAPinView)
 [![Platform](https://img.shields.io/cocoapods/p/JAPinView.svg?style=flat)](https://cocoapods.org/pods/JAPinView)
 
+![alt text](https://github.com/JayachandraA/JAPinView/blob/master/Example/Simulator%20Screen%20Shot%20-%20iPhone%20XR%20-%202018-11-07%20at%2016.35.15.png?raw=true)
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
