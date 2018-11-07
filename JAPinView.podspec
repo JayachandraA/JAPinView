@@ -24,7 +24,7 @@ JAPinView, which is used to handle UI component of OTP or pin view.
   s.homepage         = 'https://github.com/JayachandraA/JAPinView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'JayachandraA' => 'jayachandra.a@bluerose-tech.com' }
+  s.author           = { 'JayachandraA' => 'ajchandra15@gmail.com' }
   s.source           = { :git => 'https://github.com/JayachandraA/JAPinView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/ajchandra15'
 

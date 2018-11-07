@@ -1,5 +1,5 @@
 //
-//  OTPView.swift
+//  JAPinView.swift
 //  UIDemo
 //
 //  Created by Jayachandra on 10/31/18.
@@ -11,27 +11,43 @@ import UIKit
 
 @available(iOS 9.0, *)
 @IBDesignable
-class OTPView: UIView {
+public class JAPinView: UIView {
 
     private var stackView = UIStackView()
     
     
+    /// Number of input field will be desided by this property.
+    /// By defalut it is four boxes PinView
     @IBInspectable
-    var numberOfFields: Int = 4
+    var passcodeLength: Int = 4
     
+    
+    /// Set your passcode placeholder to change it's default
     @IBInspectable
     var placeholderChar: String = "*"
     
+    
+    /// Defines the spacing between the field to field
     @IBInspectable
-    var fieldSpacing: CGFloat = 10 {
+    var spacing: CGFloat = 10 {
         didSet{
-            stackView.spacing = fieldSpacing
+            stackView.spacing = spacing
         }
     }
     
+    
+    /// The background will be shown as light gray color by default, change it to your specified color if you want.
     @IBInspectable
     var fieldBackgroundColor: UIColor = UIColor.gray.withAlphaComponent(0.4)
     
+    
+    
+    /// Password will be showing as secured as '∙', if you set it to false then the passwoed will be shown to user
+    @IBInspectable
+    open var isSecure: Bool = true
+    
+    
+    /// Set the handler to lisen the pass code value after successful enterd
     open var onSuccessCodeEnter: ((_ code: String)->Void)?
     
     /*
@@ -51,27 +67,27 @@ class OTPView: UIView {
         //fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         initilize()
     }
     
     func initilize() {
         
-        let requiredFieldBoxSize = bounds.width - (CGFloat(numberOfFields)*fieldSpacing)
-        assert(requiredFieldBoxSize > fieldSpacing, "Pin text box area should be greater than 'fieldSpacing' property value")
+        let requiredFieldBoxSize = bounds.width - (CGFloat(passcodeLength)*spacing)
+        assert(requiredFieldBoxSize > spacing, "Pin text box area should be greater than 'fieldSpacing' property value")
         stackView.removeFromSuperview()
         addSubview(stackView)
         stackView.anchorAllEdgesToSuperview()
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = fieldSpacing
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: fieldSpacing, bottom: 0, right: fieldSpacing)
+        stackView.spacing = spacing
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         stackView.isLayoutMarginsRelativeArrangement = true
-        var fields = [OTPTextField]()
-        for _ in 0...numberOfFields {
-            let field = OTPTextField()
+        var fields = [JATextField]()
+        for _ in 1...passcodeLength {
+            let field = JATextField()
             field.borderStyle = .roundedRect
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
@@ -84,7 +100,7 @@ class OTPView: UIView {
         
         for (index, item) in fields.enumerated() {
             item.fields = fields
-            if index == numberOfFields{
+            if index == passcodeLength-1{
                 item.completion = { passCode in
                     if let lCompletion = self.onSuccessCodeEnter{
                         lCompletion(passCode)

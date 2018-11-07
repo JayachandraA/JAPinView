@@ -11,12 +11,25 @@ import JAPinView
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pinView: JAPinView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        pinView.onSuccessCodeEnter = { pin in
+            self.alert(pin: pin)
+        }
+    
     }
+    
+    func alert(pin: String){
+        let alert = UIAlertController(title: "OTP", message: "Entered pin is '\(pin)'", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

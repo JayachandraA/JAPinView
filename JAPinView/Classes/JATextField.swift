@@ -1,5 +1,5 @@
 //
-//  OTPTextField.swift
+//  JATextField.swift
 //  UIDemo
 //
 //  Created by Jayachandra on 10/31/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class OTPTextField: UITextField, UITextFieldDelegate {
+public class JATextField: UITextField, UITextFieldDelegate {
 
-    open var fields: [OTPTextField]?
+    open var fields: [JATextField]?
     
     open var completion: ((_ code: String)->Void)?
     
@@ -37,7 +37,7 @@ class OTPTextField: UITextField, UITextFieldDelegate {
         initilize()
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         initilize()
     }
@@ -46,12 +46,12 @@ class OTPTextField: UITextField, UITextFieldDelegate {
         delegate = self
     }
     
-    override func deleteBackward() {
+    override public func deleteBackward() {
         super.deleteBackward()
         //respondPrevious(field: self)
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard string.count > 0 else {
             return true
         }
@@ -67,7 +67,7 @@ class OTPTextField: UITextField, UITextFieldDelegate {
         return change
     }
     
-    func respondNext(field: OTPTextField) {
+    func respondNext(field: JATextField) {
         guard let lFields = fields else {
             return
         }
@@ -91,7 +91,7 @@ class OTPTextField: UITextField, UITextFieldDelegate {
         lFields[index+1].becomeFirstResponder()
     }
     
-    func respondPrevious(field: OTPTextField) {
+    func respondPrevious(field: JATextField) {
         guard let lFields = fields else {
             return
         }
