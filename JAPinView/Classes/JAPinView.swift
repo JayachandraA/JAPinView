@@ -102,6 +102,7 @@ public class JAPinView: UIView {
         }
         
         for (index, item) in fields.enumerated() {
+            
             item.fields = fields
             item.completion = { passCode in
                 if let lCompletion = self.onSuccessCodeEnter{
