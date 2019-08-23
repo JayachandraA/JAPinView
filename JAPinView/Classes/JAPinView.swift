@@ -75,7 +75,7 @@ public class JAPinView: UIView {
     func initilize() {
         
         let requiredFieldBoxSize = bounds.width - (CGFloat(passcodeLength)*spacing)
-        assert(requiredFieldBoxSize > spacing, "Pin text box area should be greater than 'fieldSpacing' property value")
+//        assert(requiredFieldBoxSize > spacing, "Pin text box area should be greater than 'fieldSpacing' property value")
         stackView.removeFromSuperview()
         addSubview(stackView)
         stackView.anchorAllEdgesToSuperview()
@@ -86,12 +86,15 @@ public class JAPinView: UIView {
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         stackView.isLayoutMarginsRelativeArrangement = true
         var fields = [JATextField]()
+        var i = 100
         for _ in 1...passcodeLength {
             let field = JATextField()
+            field.tag = i
+            i = i+1
             field.borderStyle = .roundedRect
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
-            field.isSecureTextEntry = true
+            field.isSecureTextEntry = false
             field.backgroundColor = fieldBackgroundColor
             field.textAlignment = .center
             stackView.addArrangedSubview(field)
