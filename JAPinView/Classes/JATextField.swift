@@ -89,13 +89,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
         }
         
         if index == lFields.count-1 {
-            var passCode = ""
-            for item in lFields {
-                passCode = passCode + item.text!
-            }
-            if let lCompletion = completion {
-                lCompletion(passCode)
-            }
+            firePasscode(feilds: lFields)
             field.resignFirstResponder()
             return
         }
@@ -111,14 +105,27 @@ public class JATextField: UITextField, UITextFieldDelegate {
         guard let index = lFields.index(of: field) else{
             return
         }
-
+     
         if index == 0 {
             lFields[index].resignFirstResponder()
+            firePasscode(feilds: lFields)
             return
         }
 
         lFields[index-1].becomeFirstResponder()
+        firePasscode(feilds: lFields)
     }
     
+    
+    func firePasscode(feilds: [JATextField]) {
+        var passCode = ""
+        for item in feilds {
+            passCode = passCode + item.text!
+        }
+        
+        if let lCompletion = completion {
+            lCompletion(passCode)
+        }
+    }
 
 }

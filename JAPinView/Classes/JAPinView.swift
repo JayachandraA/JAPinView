@@ -103,11 +103,9 @@ public class JAPinView: UIView {
         
         for (index, item) in fields.enumerated() {
             item.fields = fields
-            if index == passcodeLength-1{
-                item.completion = { passCode in
-                    if let lCompletion = self.onSuccessCodeEnter{
-                        lCompletion(passCode)
-                    }
+            item.completion = { passCode in
+                if let lCompletion = self.onSuccessCodeEnter{
+                    lCompletion(passCode)
                 }
             }
         }
