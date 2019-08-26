@@ -51,17 +51,17 @@ public class JATextField: UITextField, UITextFieldDelegate {
 //        respondPrevious(field: self)
     }
 
-//    public func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if textField.text!.count > 0 {
-//            textField.backgroundColor = .white
-//        } else {
-//            if #available(iOS 9.0, *) {
-//                textField.backgroundColor = JAPinView().fieldBackgroundColor
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        }
-//    }
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text!.count > 0 {
+            textField.backgroundColor = .white
+        } else {
+            if #available(iOS 9.0, *) {
+                textField.backgroundColor = JAPinView().fieldBackgroundColor
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard string.count > 0  else {
@@ -114,6 +114,11 @@ public class JATextField: UITextField, UITextFieldDelegate {
             }
             lFields[index+1].text = ""
             lFields[index+1].text = text
+            if index+1 == lFields.count-1 {
+                firePasscode(feilds: lFields)
+                lFields[index+1].resignFirstResponder()
+                return
+            }
         }
     }
     
