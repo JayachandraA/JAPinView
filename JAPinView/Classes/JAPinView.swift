@@ -84,8 +84,8 @@ public class JAPinView: UIView {
     open func setFont(_ font: UIFont) {
         for field in self.textFeilds {
             field.font = font
+            field.fieldDelegate = self.fieldDelegate
         }
-        field.fieldDelegate = self.fieldDelegate
     }
     
     func initilize() {
