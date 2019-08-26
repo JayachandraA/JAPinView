@@ -38,7 +38,7 @@ public class JAPinView: UIView {
     
     /// The background will be shown as light gray color by default, change it to your specified color if you want.
     @IBInspectable
-    var fieldBackgroundColor: UIColor = UIColor.gray.withAlphaComponent(0.4)
+    var fieldBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5)
     
     
     

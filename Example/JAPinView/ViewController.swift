@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         pinView.onSuccessCodeEnter = { pin in
-            self.alert(pin: pin)
+//            self.alert(pin: pin)
         }
     
     }
