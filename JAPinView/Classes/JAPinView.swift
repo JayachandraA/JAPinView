@@ -38,7 +38,7 @@ public class JAPinView: UIView {
     
     /// The background will be shown as light gray color by default, change it to your specified color if you want.
     @IBInspectable
-    var fieldBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5)
+    var fieldBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
     
     
     
@@ -49,6 +49,10 @@ public class JAPinView: UIView {
     
     /// Set the handler to lisen the pass code value after successful enterd
     open var onSuccessCodeEnter: ((_ code: String)->Void)?
+    
+    open var font: UIFont?
+    
+    open var textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -92,6 +96,8 @@ public class JAPinView: UIView {
             field.tag = i
             i = i+1
             field.borderStyle = .roundedRect
+            field.font = font
+            field.textColor = textColor
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
             field.isSecureTextEntry = false
