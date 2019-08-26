@@ -48,14 +48,27 @@ public class JATextField: UITextField, UITextFieldDelegate {
     
     override public func deleteBackward() {
         super.deleteBackward()
-        //respondPrevious(field: self)
+//        respondPrevious(field: self)
     }
 
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard string.count > 0 else {
-            return true
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text!.count > 0 {
+            textField.backgroundColor = .white
+        } else {
+            if #available(iOS 9.0, *) {
+                textField.backgroundColor = JAPinView().fieldBackgroundColor
+            } else {
+                // Fallback on earlier versions
+            }
         }
-        
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard string.count > 0  else {
+            textField.text = ""
+            respondPrevious(field: self)
+            return false
+        }
         let currentText = textField.text ?? ""
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
         let change = prospectiveText.count == 1
@@ -63,7 +76,6 @@ public class JATextField: UITextField, UITextFieldDelegate {
             textField.text = prospectiveText
             respondNext(field: self)
         }
-
         return change
     }
     
@@ -77,13 +89,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
         }
         
         if index == lFields.count-1 {
-            var passCode = ""
-            for item in lFields {
-                passCode = passCode + item.text!
-            }
-            if let lCompletion = completion {
-                lCompletion(passCode)
-            }
+            firePasscode(feilds: lFields)
             field.resignFirstResponder()
             return
         }
@@ -95,17 +101,31 @@ public class JATextField: UITextField, UITextFieldDelegate {
         guard let lFields = fields else {
             return
         }
-        
+
         guard let index = lFields.index(of: field) else{
             return
         }
-        
+     
         if index == 0 {
+            lFields[index].resignFirstResponder()
+            firePasscode(feilds: lFields)
             return
         }
 
         lFields[index-1].becomeFirstResponder()
+        firePasscode(feilds: lFields)
     }
     
+    
+    func firePasscode(feilds: [JATextField]) {
+        var passCode = ""
+        for item in feilds {
+            passCode = passCode + item.text!
+        }
+        
+        if let lCompletion = completion {
+            lCompletion(passCode)
+        }
+    }
 
 }

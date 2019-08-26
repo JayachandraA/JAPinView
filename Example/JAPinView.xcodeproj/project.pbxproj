@@ -227,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -304,7 +305,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JAPinView_Tests/Pods-JAPinView_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JAPinView_Tests/Pods-JAPinView_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -313,7 +314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JAPinView_Tests/Pods-JAPinView_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JAPinView_Tests/Pods-JAPinView_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FE35939BD7D0377401DD90A6 /* [CP] Embed Pods Frameworks */ = {
@@ -322,7 +323,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JAPinView_Example/Pods-JAPinView_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JAPinView_Example/Pods-JAPinView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JAPinView/JAPinView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -331,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JAPinView_Example/Pods-JAPinView_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JAPinView_Example/Pods-JAPinView_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

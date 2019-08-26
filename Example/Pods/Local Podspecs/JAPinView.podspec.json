@@ -2,7 +2,7 @@
   "name": "JAPinView",
   "version": "0.1.0",
   "summary": "JAPinView is used to handle UI component of OTP or pin view.",
-  "swift_version": "4.0",
+  "swift_versions": "4.0",
   "description": "JAPinView, which is used to handle UI component of OTP or pin view.",
   "homepage": "https://github.com/JayachandraA/JAPinView",
   "license": {
@@ -19,5 +19,6 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "JAPinView/Classes/**/*"
+  "source_files": "JAPinView/Classes/**/*",
+  "swift_version": "4.0"
 }
