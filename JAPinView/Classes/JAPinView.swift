@@ -9,12 +9,19 @@
 import UIKit
 
 
+protocol JAPinViewTextDelegate: class {
+    func fieldDidEndEditing(_ textField: UITextField)
+    func fieldDidBeginEditing(_ textField: UITextField)
+}
+
+
 @available(iOS 9.0, *)
 @IBDesignable
 public class JAPinView: UIView {
 
     private var stackView = UIStackView()
-    
+    private var textFeilds = [JATextField]()
+    weak var fieldDelagate: JAPinViewTextDelegate?
     
     /// Number of input field will be desided by this property.
     /// By defalut it is four boxes PinView
@@ -49,10 +56,9 @@ public class JAPinView: UIView {
     
     /// Set the handler to lisen the pass code value after successful enterd
     open var onSuccessCodeEnter: ((_ code: String)->Void)?
-    
-    open var font: UIFont?
-    
-    open var textColor: UIColor?
+
+    @IBInspectable
+    open var textColor: UIColor = .black
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -76,6 +82,12 @@ public class JAPinView: UIView {
         initilize()
     }
     
+    open func setFont(_ font: UIFont) {
+        for field in self.textFeilds {
+            field.font = font
+        }
+    }
+    
     func initilize() {
         
         let requiredFieldBoxSize = bounds.width - (CGFloat(passcodeLength)*spacing)
@@ -93,11 +105,11 @@ public class JAPinView: UIView {
         var i = 100
         for _ in 1...passcodeLength {
             let field = JATextField()
+            field.fieldDelagate = self.fieldDelagate
             field.tag = i
             i = i+1
             field.borderStyle = .roundedRect
-            field.font = font
-            field.textColor = textColor == nil ? .black : textColor
+            field.textColor = textColor
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
             field.isSecureTextEntry = false
@@ -106,7 +118,7 @@ public class JAPinView: UIView {
             stackView.addArrangedSubview(field)
             fields.append(field)
         }
-        
+        self.textFeilds = fields
         for (index, item) in fields.enumerated() {
             
             item.fields = fields

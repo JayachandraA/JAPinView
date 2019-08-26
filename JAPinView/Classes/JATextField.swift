@@ -11,6 +11,7 @@ import UIKit
 public class JATextField: UITextField, UITextFieldDelegate {
 
     open var fields: [JATextField]?
+    weak var fieldDelagate: JAPinViewTextDelegate?
     
     open var completion: ((_ code: String)->Void)?
     
@@ -52,6 +53,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
     }
 
     public func textFieldDidEndEditing(_ textField: UITextField) {
+        fieldDelagate?.fieldDidEndEditing(textField)
         if textField.text!.count > 0 {
             textField.backgroundColor = .white
         } else {
@@ -61,6 +63,10 @@ public class JATextField: UITextField, UITextFieldDelegate {
                 // Fallback on earlier versions
             }
         }
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        fieldDelagate?.fieldDidBeginEditing(textField)
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
