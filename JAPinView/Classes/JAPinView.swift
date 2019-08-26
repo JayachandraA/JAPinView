@@ -103,10 +103,13 @@ public class JAPinView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         var fields = [JATextField]()
         var i = 100
-        for _ in 1...passcodeLength {
+        for f in 1...passcodeLength {
             let field = JATextField()
             field.tag = i
             i = i+1
+            if f == 1 {
+                field.becomeFirstResponder()
+            }
             field.borderStyle = .roundedRect
             field.textColor = textColor
             field.placeholder = placeholderChar
