@@ -105,6 +105,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
         }
         
         if index == lFields.count-1 {
+            firePasscode(feilds: lFields)
             field.resignFirstResponder()
             return
         }
@@ -120,6 +121,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
             lFields[index+1].text = text
             if index+1 == lFields.count-1 {
                 lFields[index+1].resignFirstResponder()
+                firePasscode(feilds: lFields)
                 return
             }
         }
