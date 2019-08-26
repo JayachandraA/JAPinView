@@ -9,8 +9,7 @@
 import UIKit
 
 
-protocol JAPinViewTextDelegate: class {
-    func fieldDidEndEditing(_ textField: UITextField)
+public protocol JAPinViewTextDelegate: class {
     func fieldDidBeginEditing(_ textField: UITextField)
 }
 
@@ -21,7 +20,7 @@ public class JAPinView: UIView {
 
     private var stackView = UIStackView()
     private var textFeilds = [JATextField]()
-    weak var fieldDelagate: JAPinViewTextDelegate?
+    public weak var fieldDelegate: JAPinViewTextDelegate?
     
     /// Number of input field will be desided by this property.
     /// By defalut it is four boxes PinView
@@ -86,6 +85,7 @@ public class JAPinView: UIView {
         for field in self.textFeilds {
             field.font = font
         }
+        field.fieldDelegate = self.fieldDelegate
     }
     
     func initilize() {
@@ -105,7 +105,6 @@ public class JAPinView: UIView {
         var i = 100
         for _ in 1...passcodeLength {
             let field = JATextField()
-            field.fieldDelagate = self.fieldDelagate
             field.tag = i
             i = i+1
             field.borderStyle = .roundedRect
