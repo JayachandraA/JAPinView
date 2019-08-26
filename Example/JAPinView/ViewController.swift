@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        pinView.textColor = .blue
         pinView.onSuccessCodeEnter = { pin in
             print(pin)
 //            self.alert(pin: pin)

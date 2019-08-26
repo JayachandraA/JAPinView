@@ -52,7 +52,7 @@ public class JAPinView: UIView {
     
     open var font: UIFont?
     
-    open var textColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    open var textColor: UIColor?
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -97,7 +97,7 @@ public class JAPinView: UIView {
             i = i+1
             field.borderStyle = .roundedRect
             field.font = font
-            field.textColor = textColor
+            field.textColor = textColor == nil ? .black : textColor
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
             field.isSecureTextEntry = false
