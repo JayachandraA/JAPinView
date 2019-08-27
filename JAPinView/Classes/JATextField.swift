@@ -120,7 +120,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
             lFields[index+1].text = ""
             lFields[index+1].text = text
             if index+1 == lFields.count-1 {
-                lFields[index+1].resignFirstResponder()
+//                lFields[index+1].resignFirstResponder()
                 firePasscode(feilds: lFields)
                 return
             }
