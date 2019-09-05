@@ -9,12 +9,18 @@
 import UIKit
 
 
+public protocol JAPinViewTextDelegate: class {
+    func fieldDidBeginEditing(_ textField: UITextField)
+}
+
+
 @available(iOS 9.0, *)
 @IBDesignable
 public class JAPinView: UIView {
 
     private var stackView = UIStackView()
-    
+    private var textFeilds = [JATextField]()
+    public weak var fieldDelegate: JAPinViewTextDelegate?
     
     /// Number of input field will be desided by this property.
     /// By defalut it is four boxes PinView
@@ -38,7 +44,7 @@ public class JAPinView: UIView {
     
     /// The background will be shown as light gray color by default, change it to your specified color if you want.
     @IBInspectable
-    var fieldBackgroundColor: UIColor = UIColor.gray.withAlphaComponent(0.4)
+    var fieldBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3)
     
     
     
@@ -49,6 +55,9 @@ public class JAPinView: UIView {
     
     /// Set the handler to lisen the pass code value after successful enterd
     open var onSuccessCodeEnter: ((_ code: String)->Void)?
+
+    @IBInspectable
+    open var textColor: UIColor = .black
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -72,6 +81,13 @@ public class JAPinView: UIView {
         initilize()
     }
     
+    open func setFont(_ font: UIFont) {
+        for field in self.textFeilds {
+            field.font = font
+            field.fieldDelegate = self.fieldDelegate
+        }
+    }
+    
     func initilize() {
         
         let requiredFieldBoxSize = bounds.width - (CGFloat(passcodeLength)*spacing)
@@ -87,11 +103,15 @@ public class JAPinView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         var fields = [JATextField]()
         var i = 100
-        for _ in 1...passcodeLength {
+        for f in 1...passcodeLength {
             let field = JATextField()
             field.tag = i
             i = i+1
+            if f == 1 {
+                field.becomeFirstResponder()
+            }
             field.borderStyle = .roundedRect
+            field.textColor = textColor
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
             field.isSecureTextEntry = false
@@ -100,7 +120,7 @@ public class JAPinView: UIView {
             stackView.addArrangedSubview(field)
             fields.append(field)
         }
-        
+        self.textFeilds = fields
         for (index, item) in fields.enumerated() {
             
             item.fields = fields

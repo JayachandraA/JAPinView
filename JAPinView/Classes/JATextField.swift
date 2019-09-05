@@ -11,6 +11,7 @@ import UIKit
 public class JATextField: UITextField, UITextFieldDelegate {
 
     open var fields: [JATextField]?
+    weak var fieldDelegate: JAPinViewTextDelegate?
     
     open var completion: ((_ code: String)->Void)?
     
@@ -62,6 +63,10 @@ public class JATextField: UITextField, UITextFieldDelegate {
             }
         }
     }
+
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        fieldDelegate?.fieldDidBeginEditing(textField)
+    }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard string.count > 0  else {
@@ -71,15 +76,26 @@ public class JATextField: UITextField, UITextFieldDelegate {
         }
         let currentText = textField.text ?? ""
         let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
-        let change = prospectiveText.count == 1
-        if change{
-            textField.text = prospectiveText
+//        let change = prospectiveText.count == 1
+//        if change{
+        if textField.text!.count == 1, string.count == 1 {
+//            textField.text = ""
+            respondNext(field: self,text: string)
+        } else {
+            textField.text = string
+            if #available(iOS 9.0, *) {
+                textField.backgroundColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
             respondNext(field: self)
         }
-        return change
+        
+//        }
+        return true
     }
     
-    func respondNext(field: JATextField) {
+    func respondNext(field: JATextField,text: String = "") {
         guard let lFields = fields else {
             return
         }
@@ -95,6 +111,21 @@ public class JATextField: UITextField, UITextFieldDelegate {
         }
         
         lFields[index+1].becomeFirstResponder()
+        if text.count > 0 {
+            if #available(iOS 9.0, *) {
+                lFields[index+1].backgroundColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            lFields[index+1].text = ""
+            lFields[index+1].text = text
+            if index+1 == lFields.count-1 {
+//                lFields[index+1].resignFirstResponder()
+                firePasscode(feilds: lFields)
+                return
+            }
+        }
+        firePasscode(feilds: lFields)
     }
     
     func respondPrevious(field: JATextField) {
@@ -111,7 +142,11 @@ public class JATextField: UITextField, UITextFieldDelegate {
             firePasscode(feilds: lFields)
             return
         }
-
+        if #available(iOS 9.0, *) {
+            lFields[index].backgroundColor = JAPinView().fieldBackgroundColor
+        } else {
+            // Fallback on earlier versions
+        }
         lFields[index-1].becomeFirstResponder()
         firePasscode(feilds: lFields)
     }

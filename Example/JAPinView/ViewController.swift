@@ -17,9 +17,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        pinView.setFont(UIFont.systemFont(ofSize: 25))
         pinView.onSuccessCodeEnter = { pin in
-            self.alert(pin: pin)
+            print(pin)
+//            self.alert(pin: pin)
         }
     
     }
