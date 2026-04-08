@@ -1,5 +1,4 @@
 import XCTest
-import JAPinView
 
 class Tests: XCTestCase {
     

@@ -1,9 +1,8 @@
 {
   "name": "JAPinView",
-  "version": "0.1.0",
-  "summary": "JAPinView is used to handle UI component of OTP or pin view.",
-  "swift_versions": "4.0",
-  "description": "JAPinView, which is used to handle UI component of OTP or pin view.",
+  "version": "1.0.0",
+  "summary": "Modern OTP / PIN input view with AutoFill, paste support, and accessibility.",
+  "description": "JAPinView is a modern, customizable OTP and PIN input component for iOS.\nSupports SMS AutoFill, paste detection, secure entry, accessibility,\nanimations, and Flutter embedding compatibility.",
   "homepage": "https://github.com/JayachandraA/JAPinView",
   "license": {
     "type": "MIT",
@@ -14,11 +13,13 @@
   },
   "source": {
     "git": "https://github.com/JayachandraA/JAPinView.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "15.0"
   },
-  "source_files": "JAPinView/Classes/**/*",
-  "swift_version": "4.0"
+  "swift_versions": "5.9",
+  "source_files": "Sources/JAPinView/**/*.{swift}",
+  "requires_arc": true,
+  "swift_version": "5.9"
 }

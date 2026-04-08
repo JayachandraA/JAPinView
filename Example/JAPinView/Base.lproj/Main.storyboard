@@ -1,71 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="40j-fQ-YTp">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="cLe-1l-RsU">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <tableViewController storyboardIdentifier="ViewController" id="Ujs-Fn-cbF" customClass="ViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Y1W-cr-vlb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="EzK-1i-oyG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify OTP !!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AS-aP-JP1">
-                                <rect key="frame" x="137" y="150" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1B-SZ-hvD" customClass="JAPinView" customModule="JAPinView">
-                                <rect key="frame" x="58" y="206" width="259" height="52"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="2vw-16-f8w"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.95294117649999999" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EzK-1i-oyG" secondAttribute="trailing" id="NQM-kY-qTh"/>
-                            <constraint firstItem="6AS-aP-JP1" firstAttribute="centerX" secondItem="EzK-1i-oyG" secondAttribute="centerX" id="QMJ-aP-OrU"/>
-                            <constraint firstItem="EzK-1i-oyG" firstAttribute="top" secondItem="6AS-aP-JP1" secondAttribute="bottom" constant="-171" id="VRv-Da-RwV"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="EzK-1i-oyG" secondAttribute="bottom" id="a7q-zS-pcN"/>
-                            <constraint firstAttribute="trailing" secondItem="r1B-SZ-hvD" secondAttribute="trailing" constant="58" id="fa0-Fb-3Uk"/>
-                            <constraint firstItem="r1B-SZ-hvD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="58" id="mns-W8-38Y"/>
-                            <constraint firstItem="EzK-1i-oyG" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="oHD-xR-gTJ"/>
-                            <constraint firstItem="EzK-1i-oyG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="st2-hz-aD9"/>
-                            <constraint firstItem="r1B-SZ-hvD" firstAttribute="top" secondItem="6AS-aP-JP1" secondAttribute="bottom" constant="35" id="wPO-rW-8Ms"/>
-                        </constraints>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AxW-wX-aPh">
+                                <rect key="frame" x="0.0" y="50" width="375" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AxW-wX-aPh" id="htU-SS-Eqi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ujs-Fn-cbF" id="if9-d8-JSh"/>
+                            <outlet property="delegate" destination="Ujs-Fn-cbF" id="EOM-ft-eKN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZH6-pN-FYM"/>
                     <connections>
-                        <outlet property="pinView" destination="r1B-SZ-hvD" id="42X-lh-Xjz"/>
+                        <segue destination="TSc-Cz-uki" kind="show" identifier="Basic" id="0Hw-LA-JQc"/>
+                        <segue destination="1VN-XF-NTy" kind="show" identifier="Banking" id="iFp-G4-byV"/>
+                        <segue destination="y5X-z5-7Zr" kind="show" identifier="Theming" id="GxN-mq-fVF"/>
+                        <segue destination="vmV-75-g4V" kind="show" identifier="Validation" id="EOd-RO-fEb"/>
+                        <segue destination="1vS-iL-4fR" kind="show" identifier="Accessibility" id="nXj-4q-Lgp"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckZ-FB-IEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+            <point key="canvasLocation" x="151" y="-260"/>
+        </scene>
+        <!--BasicOTP View Controller-->
+        <scene sceneID="jHz-qi-iWN">
+            <objects>
+                <viewController id="TSc-Cz-uki" customClass="BasicOTPViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pyj-XJ-pyG"/>
+                        <viewControllerLayoutGuide type="bottom" id="cBy-1U-DxU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8o6-Bb-D0g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T8g-pg-TCd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GlT-a1-wAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="-1063"/>
+        </scene>
+        <!--BankingPIN View Controller-->
+        <scene sceneID="tY8-8t-ErT">
+            <objects>
+                <viewController id="1VN-XF-NTy" customClass="BankingPINViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v1g-YL-nR9"/>
+                        <viewControllerLayoutGuide type="bottom" id="edt-an-CSb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wj6-K7-rcV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rP0-YK-Pxp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJm-5m-kRu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2240.8000000000002" y="-410.64467766116945"/>
+        </scene>
+        <!--Theming Demo View Controller-->
+        <scene sceneID="UyP-Ra-PPw">
+            <objects>
+                <viewController id="y5X-z5-7Zr" customClass="ThemingDemoViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hxy-ZY-lhF"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Hf-0f-Vzm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h93-gt-HAk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PiI-yd-qzG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmr-Ns-OKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2240.8000000000002" y="250.52473763118442"/>
+        </scene>
+        <!--Validation Demo View Controller-->
+        <scene sceneID="N7A-n2-W3o">
+            <objects>
+                <viewController id="vmV-75-g4V" customClass="ValidationDemoViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AC8-TO-vQs"/>
+                        <viewControllerLayoutGuide type="bottom" id="v7W-MR-43J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rid-BY-Z7l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5sc-nv-Rvk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgf-zu-AGt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2241" y="1113"/>
+        </scene>
+        <!--Accessibility Demo View Controller-->
+        <scene sceneID="oDN-vs-ndM">
+            <objects>
+                <viewController id="1vS-iL-4fR" customClass="AccessibilityDemoViewController" customModule="JAPinView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kBD-lk-8xX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ce5-Vx-nIb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k0y-Yb-UK1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AJZ-yq-SNf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YW9-jP-7NQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="1603"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EuV-Ug-6Kc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="40j-fQ-YTp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ygD-Fh-fSV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ujs-Fn-cbF" kind="relationship" relationship="rootViewController" id="HAO-23-U5i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pq-8y-9fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1167" y="90"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bg" width="1440" height="2560"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
