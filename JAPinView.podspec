@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/JayachandraA/JAPinView'
   s.screenshots      = [
-    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example1.png',
-    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example2.png',
-    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example3.png',
-    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example4.png',
-    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example5.png'
+    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Examples/example1.png',
+    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Examples/example2.png',
+    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Examples/example3.png',
+    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Examples/example4.png',
+    'https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Examples/example5.png'
   ]
 
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
