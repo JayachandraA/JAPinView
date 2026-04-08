@@ -65,11 +65,11 @@ Drop it in, set a configuration, and get a production-ready input field with ani
 
 | Basic OTP | Banking PIN | Theming Demo |
 |:---------:|:-----------:|:------------:|
-| ![Basic OTP](https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example1.png) | ![Banking PIN](https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example2.png) | ![Theming Demo](https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example3.png) |
+| ![Basic OTP](https://github.com/JayachandraA/JAPinView/blob/master/Examples/example1.png?raw=true) | ![Banking PIN](https://github.com/JayachandraA/JAPinView/blob/master/Examples/example2.png?raw=true) | ![Theming Demo](https://github.com/JayachandraA/JAPinView/blob/master/Examples/example3.png?raw=true) |
 
 | Validation Demo | Accessibility Demo |
 |:---------------:|:-----------------:|
-| ![Validation Demo](https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example4.png) | ![Accessibility Demo](https://raw.githubusercontent.com/JayachandraA/JAPinView/master/Example/example5.png) |
+| ![Validation Demo](https://github.com/JayachandraA/JAPinView/blob/master/Examples/example4.png?raw=true) | ![Accessibility Demo](https://github.com/JayachandraA/JAPinView/blob/master/Examples/example5.png?raw=true) |
 
 ---
 
